@@ -1,5 +1,5 @@
 url: https://mutinouswomen.github.io
-baseurl: /MutinousWomen/
+#baseurl: /MutinousWomen/
 destination: ./docs
 # Site settings
 title: Mutinous Women
