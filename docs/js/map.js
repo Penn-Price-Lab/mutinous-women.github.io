@@ -6,7 +6,7 @@ let tiles = L.tileLayer("https://mapwarper.net/maps/tile/58607/{z}/{x}/{y}.png")
 tilesbg.addTo(myMap)
 tiles.addTo(myMap);
 
-$.getJSON("https://cdn.glitch.me/095c6d41-a3ec-49e6-a0eb-30d2394c0254%2FNovember9thGeo.geojson?v=1636507234968", function(data){
+$.getJSON("https://cdn.glitch.me/095c6d41-a3ec-49e6-a0eb-30d2394c0254%2FMutinousWomen-november%2010.geojson?v=1636587630964", function(data){
   
 // let legend = L.control({position: 'bottomright'});
   
@@ -38,7 +38,7 @@ myMap.setBearing(52)
 
 function addPopUp(feature,layer){
   
-  if (feature.properties.Type=="street"||"person"){
+  if (feature.properties.Type=="street"||feature.properties.Type=="person"){
     
     
     
@@ -61,12 +61,9 @@ function addPopUp(feature,layer){
   else if (feature.properties.Type=="public building"){
   
   
-    let content = "<b>"+"Name: " + feature.properties.Name + "<br>" 
-                + "Lot number: " + feature.properties.Lot + "<br>"
-                + "Ship, Passenger number: " + feature.properties.Ship_number + "<br>"
-                + "Birth: "+ feature.properties.Birth + "<br>"
-                + "Death: "+ feature.properties.Death + "<br>"+"</b>"
-                + "<br>"
+    let content = "<b>"
+                + "<b>"+ feature.properties.Name + "<br>" 
+                +"<br>"
                 + feature.properties.Bio + "<br>"
                 +"<br>"
                 + "<img width=300 src='"+feature.properties.Image+"'>"
@@ -75,9 +72,30 @@ function addPopUp(feature,layer){
                  
  layer.bindPopup(content)   }
   
+  else if (feature.properties.Type=="other"){
+    
+  let content = "<b>"+"Name: " + feature.properties.Name + "<br>" 
+                
+                + "Ship, Passenger number: " + feature.properties.Ship_number + "<br>"
+                + "Birth: "+ feature.properties.Birth + "<br>"
+                + "Death: "+ feature.properties.Death + "<br>"+"</b>"
+                + "<br>"
+                + feature.properties.Bio + "<br>"
+                +"<br>"
+                + "<img width=300 src='"+feature.properties.Image+"'>"
+                + "<br>"+ ""
+  
+                 
+ layer.bindPopup(content)  
+    
+    
+  }
+  
   
   
 }
+
+
 
 function getColor(feature){
   switch (feature.properties.TOOLS_INSTALLED) {
