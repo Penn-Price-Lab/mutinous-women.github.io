@@ -1,5 +1,5 @@
 let myMap = L.map('mapid', {rotate:true});
-myMap.setView([29.957588538774026, -90.06292144027744], 15);
+myMap.setView([29.961368, -90.057744], 15);
 
 let tilesbg = L.tileLayer('https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/tile/{z}/{y}/{x}')
 let tiles = L.tileLayer("https://mapwarper.net/maps/tile/58607/{z}/{x}/{y}.png")
