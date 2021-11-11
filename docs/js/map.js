@@ -6,7 +6,7 @@ let tiles = L.tileLayer("https://mapwarper.net/maps/tile/58607/{z}/{x}/{y}.png")
 tilesbg.addTo(myMap)
 tiles.addTo(myMap);
 
-$.getJSON("https://cdn.glitch.me/095c6d41-a3ec-49e6-a0eb-30d2394c0254%2FMutinousWomen-november%2010.geojson?v=1636587630964", function(data){
+$.getJSON("https://cdn.glitch.me/095c6d41-a3ec-49e6-a0eb-30d2394c0254%2FMutinousWomen5.geojson?v=1636589906502", function(data){
   
 // let legend = L.control({position: 'bottomright'});
   
@@ -72,10 +72,10 @@ function addPopUp(feature,layer){
                  
  layer.bindPopup(content)   }
   
-  else if (feature.properties.Type=="other"){
-    
-  let content = "<b>"+"Name: " + feature.properties.Name + "<br>" 
-                
+   else if (feature.properties.Type=="other "){
+ 
+ let content = "<b>"+"Name: " + feature.properties.Name + "<br>" 
+                + "Lot number: " + feature.properties.Lot + "<br>"
                 + "Ship, Passenger number: " + feature.properties.Ship_number + "<br>"
                 + "Birth: "+ feature.properties.Birth + "<br>"
                 + "Death: "+ feature.properties.Death + "<br>"+"</b>"
@@ -83,14 +83,16 @@ function addPopUp(feature,layer){
                 + feature.properties.Bio + "<br>"
                 +"<br>"
                 + "<img width=300 src='"+feature.properties.Image+"'>"
-                + "<br>"+ ""
+                + "<br>"
+  
+      
+               
   
                  
  layer.bindPopup(content)  
     
     
   }
-  
   
   
 }
@@ -129,11 +131,11 @@ myMap.on("contextmenu", function (event) {
 
 
 function getcolor (feature) {
-  if(feature.properties.Type == "person") {return 'blue'
+  if(feature.properties.Type == "person") {return '#1F618D'
     
   }
-  else if (feature.properties.Type == "street") {return 'orange'}
-  else if (feature.properties.Type == "public building") {return 'green'}
+  else if (feature.properties.Type == "street") {return '#AF601A'}
+  else if (feature.properties.Type == "public building") {return '#1D8348'}
   else {return 'black'}
 };
 
