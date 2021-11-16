@@ -1,12 +1,13 @@
 let myMap = L.map('mapid', {rotate:true});
-myMap.setView([29.957588538774026, -90.06292144027744], 15);
+myMap.setView([29.951065
+, -90.071533], 15);
 
 let tilesbg = L.tileLayer('https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/tile/{z}/{y}/{x}')
 let tiles = L.tileLayer("https://mapwarper.net/maps/tile/58607/{z}/{x}/{y}.png")
 tilesbg.addTo(myMap)
 tiles.addTo(myMap);
 
-$.getJSON("https://cdn.glitch.me/095c6d41-a3ec-49e6-a0eb-30d2394c0254%2FMutinousWomen5.geojson?v=1636589906502", function(data){
+$.getJSON("https://cdn.glitch.me/095c6d41-a3ec-49e6-a0eb-30d2394c0254%2FNovember9thGeo.geojson?v=1636507234968", function(data){
   
 // let legend = L.control({position: 'bottomright'});
   
@@ -38,7 +39,7 @@ myMap.setBearing(52)
 
 function addPopUp(feature,layer){
   
-  if (feature.properties.Type=="street"||feature.properties.Type=="person"){
+  if (feature.properties.Type=="street"||"person"){
     
     
     
@@ -61,20 +62,7 @@ function addPopUp(feature,layer){
   else if (feature.properties.Type=="public building"){
   
   
-    let content = "<b>"
-                + "<b>"+ feature.properties.Name + "<br>" 
-                +"<br>"
-                + feature.properties.Bio + "<br>"
-                +"<br>"
-                + "<img width=300 src='"+feature.properties.Image+"'>"
-                + "<br>"
-  
-                 
- layer.bindPopup(content)   }
-  
-   else if (feature.properties.Type=="other "){
- 
- let content = "<b>"+"Name: " + feature.properties.Name + "<br>" 
+    let content = "<b>"+"Name: " + feature.properties.Name + "<br>" 
                 + "Lot number: " + feature.properties.Lot + "<br>"
                 + "Ship, Passenger number: " + feature.properties.Ship_number + "<br>"
                 + "Birth: "+ feature.properties.Birth + "<br>"
@@ -85,19 +73,12 @@ function addPopUp(feature,layer){
                 + "<img width=300 src='"+feature.properties.Image+"'>"
                 + "<br>"
   
-      
-               
-  
                  
- layer.bindPopup(content)  
-    
-    
-  }
+ layer.bindPopup(content)   }
+  
   
   
 }
-
-
 
 function getColor(feature){
   switch (feature.properties.TOOLS_INSTALLED) {
@@ -131,11 +112,11 @@ myMap.on("contextmenu", function (event) {
 
 
 function getcolor (feature) {
-  if(feature.properties.Type == "person") {return '#1F618D'
+  if(feature.properties.Type == "person") {return 'blue'
     
   }
-  else if (feature.properties.Type == "street") {return '#AF601A'}
-  else if (feature.properties.Type == "public building") {return '#1D8348'}
+  else if (feature.properties.Type == "street") {return 'orange'}
+  else if (feature.properties.Type == "public building") {return 'green'}
   else {return 'black'}
 };
 
