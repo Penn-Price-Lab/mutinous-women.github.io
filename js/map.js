@@ -1,6 +1,5 @@
 let myMap = L.map('mapid', {rotate:true});
-myMap.setView([29.951065
-, -90.071533], 15);
+myMap.setView([29.958232, -90.065136], 16);
 
 let tilesbg = L.tileLayer('https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/tile/{z}/{y}/{x}')
 let tiles = L.tileLayer("https://mapwarper.net/maps/tile/58607/{z}/{x}/{y}.png")
@@ -17,7 +16,7 @@ $.getJSON("https://cdn.glitch.me/095c6d41-a3ec-49e6-a0eb-30d2394c0254%2FNovember
     
     pointToLayer: function(feature, latlng) {
       return new L.CircleMarker(latlng, {
-        radius:2,
+        radius:4,
         color: getcolor(feature)
       });
     },
@@ -80,34 +79,6 @@ function addPopUp(feature,layer){
   
 }
 
-function getColor(feature){
-  switch (feature.properties.TOOLS_INSTALLED) {
-            case 'depaving':
-              return  'orange';
-            case 'downspout planter':
-              return 'green';
-            case 'Downspout planter':
-              return 'green';
-            case 'rain garden':
-              return 'blue';
-            case 'rain barrel':
-              return 'purple';
-            case 'Rain Barrel':
-              return 'purple;'
-            case 'permeable pavers':
-              return 'pink';
-            case 'Permeable pavers':
-              return 'pink';
-            default:
-              return 'black';
-          }
-        }
-
-myMap.on("contextmenu", function (event) {
-  document.getElementById("title").innerText = event.latlng.toString();
-  console.log("user right-clicked on map coordinates: " + event.latlng.toString());
-  //L.marker(event.latlng).addTo(myMap);
-});
 
 
 
