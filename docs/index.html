@@ -7,7 +7,7 @@
     <title>Mutinous Women</title>
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.">
-    <link rel="canonical" href="https://mutinouswomen.github.io/">
+    <link rel="canonical" href="http://localhost:4000/">
 
 
     <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
@@ -34,6 +34,10 @@
               src="https://code.jquery.com/jquery-3.6.0.min.js"
               integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
               crossorigin="anonymous"></script>
+    
+
+<script src="https://unpkg.com/leaflet-responsive-popup@0.6.4/leaflet.responsive.popup.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet-responsive-popup@0.6.4/leaflet.responsive.popup.css" />
     
     <script src="../js/map.js" defer></script>
 
@@ -73,7 +77,7 @@
                           <a class="page-scroll" href="#services">The map</a>
                     </li>
                     <li>
-                         <a class="page-scroll" href="#portfolio">The women</a> 
+                         <a class="page-scroll" href="#portfolio">The story</a> 
                     </li>
                     <li>
                         <a class="page-scroll" href="#about">About</a>
@@ -115,9 +119,8 @@
     <!-- Services Section -->
     <section id="services">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">The map</h2>
+                <div >
+                    <h2 class="section-heading text-center">The map</h2>
                     <h3 class="section-subheading text-muted">In 1731, an architect’s draftsman named Gonichon produced this map, considered the most accurate depiction of New Orleans a decade after serious construction on the new capital began.  Gonichon’s map shows all the city’s original buildings and its first streets.  On the northern edge, you see what residents already called Dauphine Street, even though the actual street did not yet exist.  
 
     Each plot of land was numbered, and an accompanying chart listed the owners of most properties.  In many cases, Gonichon’s map makes it possible to determine precisely who lived where.  In all, of the roughly 200 privately-owned properties in New Orleans in 1731, between 8 and 10 percent were in the hands of women who were banished from France in 1719.  In many cases, these deported women had cleared the land and built the homes that sat on their lots with their own hands.</h3>
@@ -126,9 +129,11 @@
 
 
 
-    <div id="mapid" style="height:600px"></div>
+    <div id="mapid" style="height:600px; width:100%">
+         
+    </div>
                
-
+<!-- <img src="https://cdn.glitch.me/ff68c5af-6a66-41a2-892e-9495a1e61e6d%2Fmutine-women-legend.jpg?v=1637694856933" style="width:200px"> -->
 
 
 
@@ -138,7 +143,6 @@
             
                     </span>
                     
-                </div>
             </div>
         </div>
     </section>
@@ -147,7 +151,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">The women</h2>
+                    <h2 class="section-heading">The story</h2>
 </div>
             </div>
          <h3 class="section-subheading text-muted"> In 1719, the Parisian police force was given free rein to arrest women.  The development of the newest French colony, the immense territory known as “Louisiana,” had suddenly become a priority, and officials were willing to use any means necessary to acquire female colonists.  Any woman found on the streets of Paris was at risk of being quickly incarcerated on trumped-up charges and then shipped off across the Atlantic.  A few traveled on a vessel named Les Deux Frères, while most were transported on a ship called La Mutine, or the Mutinous Woman.  Of the hundreds arrested in police raids, roughly 188 women were taken from Paris in chains.  About 60 survived the journey.  In 1720, those survivors found themselves on the Gulf Coast.  Most soon married and began new lives all over the colony – from Natchez to Mobile, from Biloxi to Arkansas, from Natchitoches to Illinois.  During the first decade of New Orleans’s existence, at least 36 survivors resided there.  Many women deported in 1719 were among the original owners of property in what is now the French Quarter.  </h3>
@@ -158,49 +162,10 @@
      <!-- Portfolio Grid Section -->
 
     <section id="about" class="bg-light-gray">
-        <div class="container">
-            <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">About</h2>
+                    <h2 class="section-heading">About</h2><br>
                       </div>
-            </div>
-        </div>
-    </section>
-     <div class="col portfolio-item">
-                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                               
-                            </div>
-                        </div>
-                    
-                    </a>
-                    <div class="portfolio-caption">
-                        <h4>The author</h4>   <br>
-
-                        <h4>Joan DeJean</h4> 
-                         <br>
-
-                        <p class="text-muted"> Joan DeJean was born in Opelousas, Louisiana.  She was educated at Tulane (Newcomb College) and Yale University.  She taught courses on seventeenth- and eighteenth-century France at Yale, Princeton, and the University of Pennsylvania, where she is Trustee Professor.  She has done research in French archives since 1974, primarily in the archives of Parisian prisons held in Paris’s Arsenal Library.  It was in the Arsenal that, a decade ago, she came across the earliest documentation describing the arrests and deportations of the Mutinous Women who helped found and build New Orleans.
-                         <div class="col portfolio-item">
-                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                               
-                            </div>
-                        </div>
-                    
-                    </a>
-                    <div class="portfolio-caption">
-                      
-                       
-                        </div>
-
-                </div>
-            </div>
-            <div class="row">
-            
-                <div class="col portfolio-item">
+    <div class="col portfolio-item">
                        <a href="https://www.basicbooks.com/titles/joan-dejean/mutinous-women/9781541600591/#"target="_blank" rel=“noreferrer noopener”>  
                        
                         <div class="portfolio-hover">
@@ -210,11 +175,18 @@
                         </div>
                         <img src="img/book-cover.png" class="img-responsive img-centered" alt="">
                     </a>
-                    <div class="portfolio-caption">
-                        <h4>The book</h4>
-                      
-                    </div>
+       
                 </div>
+     <div class="container">
+                   
+                    <div class="section-subheading text-muted text-center">
+                        <!-- <h4>Joan DeJean</h4>   
+                         <br>
+
+                        <p class="text-muted text-center"> Joan DeJean was born in Opelousas, Louisiana.  She was educated at Tulane (Newcomb College) and Yale University.  She taught courses on seventeenth- and eighteenth-century France at Yale, Princeton, and the University of Pennsylvania, where she is Trustee Professor.  She has done research in French archives since 1974, primarily in the archives of Parisian prisons held in Paris’s Arsenal Library.  It was in the Arsenal that, a decade ago, she came across the earliest documentation describing the arrests and deportations of the Mutinous Women who helped found and build New Orleans.
+             -->
+            </div>
+            <div class="row">
             
                 <div class="col portfolio-item">
                     <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
@@ -225,13 +197,18 @@
                         </div>
                     
                     </a>
-                    <div class="portfolio-caption">
-                        <h4>The team</h4>   <br>
+                    <div class="section-subheading text-muted text-center">
+                        <h4>Joan DeJean</h4>   
+                    
+
+                        <p class="text-muted"> Joan DeJean was born in Opelousas, Louisiana.  She was educated at Tulane (Newcomb College) and Yale University.  She taught courses on seventeenth- and eighteenth-century France at Yale, Princeton, and the University of Pennsylvania, where she is Trustee Professor.  She has done research in French archives since 1974, primarily in the archives of Parisian prisons held in Paris’s Arsenal Library.  It was in the Arsenal that, a decade ago, she came across the earliest documentation describing the arrests and deportations of the Mutinous Women who helped found and build New Orleans.
+                         </p><br>
+                        
 
                         <h4>Pauline Carbonnel</h4> 
-                        <p class="text-muted"> Co-designer & developer, Research Assistant 
+                        <p class="text-muted"> Co-designer & developer, Research Assistant </p>
                         <h4>Cassandra Hradil</h4> 
-                        <p class="text-muted"> Co-designer & developer, Digital Humanities Specialist 
+                        <p class="text-muted"> Co-designer & developer, Digital Humanities Specialist </p>
                         </div>
 
        
@@ -264,247 +241,11 @@
                     </ul>
                 </div>
                 <div class="col-md-4">
-                    <ul class="list-inline quicklinks">
-                        <li><a href="#">Privacy Policy</a>
-                        </li>
-                        <li><a href="#">Terms of Use</a>
-                        </li>
-                    </ul>
+                    
                 </div>
             </div>
         </div>
     </footer>
-
-    @ <!-- Portfolio Modals -->
- 
-    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Dreams</h2>
-                            <hr class="star-primary">
-                            <img src="img/portfolio/dreams.png" class="img-responsive img-centered" alt="image-alt">
-                            <p>Lorem ipsum dolor sit amet, usu cu alterum nominavi lobortis. At duo novum diceret. Tantas apeirian vix et, usu sanctus postulant inciderint ut, populo diceret necessitatibus in vim. Cu eum dicam feugiat noluisse.</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Escape</h2>
-                            <hr class="star-primary">
-                            <img src="img/portfolio/escape.png" class="img-responsive img-centered" alt="image-alt">
-                            <p>Lorem ipsum dolor sit amet, usu cu alterum nominavi lobortis. At duo novum diceret. Tantas apeirian vix et, usu sanctus postulant inciderint ut, populo diceret necessitatibus in vim. Cu eum dicam feugiat noluisse.</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Golden</h2>
-                            <hr class="star-primary">
-                            <img src="img/portfolio/golden.png" class="img-responsive img-centered" alt="image-alt">
-                            <p>Lorem ipsum dolor sit amet, usu cu alterum nominavi lobortis. At duo novum diceret. Tantas apeirian vix et, usu sanctus postulant inciderint ut, populo diceret necessitatibus in vim. Cu eum dicam feugiat noluisse.</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Treehouse</h2>
-                            <hr class="star-primary">
-                            <img src="img/portfolio/treehouse.png" class="img-responsive img-centered" alt="image-alt">
-                            <p>Lorem ipsum dolor sit amet, usu cu alterum nominavi lobortis. At duo novum diceret. Tantas apeirian vix et, usu sanctus postulant inciderint ut, populo diceret necessitatibus in vim. Cu eum dicam feugiat noluisse.</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Round Icons</h2>
-                            <hr class="star-primary">
-                            <img src="img/portfolio/roundicons.png" class="img-responsive img-centered" alt="image-alt">
-                            <p>Lorem ipsum dolor sit amet, usu cu alterum nominavi lobortis. At duo novum diceret. Tantas apeirian vix et, usu sanctus postulant inciderint ut, populo diceret necessitatibus in vim. Cu eum dicam feugiat noluisse.</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Startup Framework</h2>
-                            <hr class="star-primary">
-                            <img src="img/portfolio/startup-framework.png" class="img-responsive img-centered" alt="image-alt">
-                            <p>Lorem ipsum dolor sit amet, usu cu alterum nominavi lobortis. At duo novum diceret. Tantas apeirian vix et, usu sanctus postulant inciderint ut, populo diceret necessitatibus in vim. Cu eum dicam feugiat noluisse.</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
 
      <!-- jQuery Version 1.11.0 -->
     <script src="/js/jquery-1.11.0.js"></script>

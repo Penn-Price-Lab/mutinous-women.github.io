@@ -1,61 +1,111 @@
-/******************************************************************************
-START Glitch hello-app default styles
+let myMap = L.map('mapid', {rotate:true});
+myMap.setView([29.958232, -90.065136], 16);
 
-The styles in this section do some minimal CSS resets, set default fonts and 
-colors, and handle the layout for our footer and "Remix on Glitch" button. If
-you're new to CSS they may seem a little complicated, but you can scroll down
-to this section's matching END comment to see page-specific styles.
-******************************************************************************/
+let tilesbg = L.tileLayer('https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/tile/{z}/{y}/{x}')
+let tiles = L.tileLayer("https://mapwarper.net/maps/tile/58607/{z}/{x}/{y}.png")
+tilesbg.addTo(myMap)
+tiles.addTo(myMap);
 
-
-/* 
-  The style rules specify elements by type and by attributes such as class and ID
-  Each section indicates an element or elements, then lists the style properties to apply
-  See if you can cross-reference the rules in this file with the elements in index.html
-*/
-
-/* Our default values set as CSS variables */
-:root {
-  --color-bg: #ffccff;
-
-}
-
-/* Import fonts */
-@font-face {
-  font-family: HK Grotesk;
-  src: url("https://cdn.glitch.me/095c6d41-a3ec-49e6-a0eb-30d2394c0254%2Fnov13.geojson?v=1636836666566")
-    format("opentype");
-}
-@font-face {
-  font-family: HK Grotesk;
-  font-weight: bold;
-  src: url("https://cdn.glitch.com/605e2a51-d45f-4d87-a285-9410ad350515%2FHKGrotesk-Bold.otf?v=1603136323437")
-    format("opentype");
-}
-
-
-body {
-  font-family: Verdana;
-  background-color: var(--color-bg);
-}
-
-/* Page structure */
-.title {
-  color: #2800FF;
-  font-family: verdana;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 60px;
-  line-height: 105%;
-  margin: 0;
-}
-
-.container {
-  margin:1em;
-}
-
-#mapid {
-  height:600px;
+$.getJSON("https://cdn.glitch.me/ff68c5af-6a66-41a2-892e-9495a1e61e6d%2FMutinousWomen-latest%20update-november%2010th%20-%20MutinousWomen-latest%20update-novembre%204th.geojson?v=1637690445076", function(data){
   
-}
+// let legend = L.control({position: 'bottomright'});
+  
+// legend.addTo(myMap);
+  
+  let rainCheckSites = L.geoJson(data, {
+    
+    pointToLayer: function(feature, latlng) {
+      return new L.CircleMarker(latlng, {
+        radius:4,
+        color: getcolor(feature)
+      });
+    },
+    onEachFeature: addPopUp
+    
+    
+  });
+  
+  
+  
+  rainCheckSites.addTo(myMap);
+
+let legend = L.control({ position: "bottomleft" });
+
+legend.onAdd = function(map) {
+  let div = L.DomUtil.create("div", "legend");
+  div.innerHTML += '<img src="https://cdn.glitch.me/ff68c5af-6a66-41a2-892e-9495a1e61e6d%2Fmutine-women-legend.jpg?v=1637694856933" style="width:200px">'
+  
+
+  return div;
+};
+
+legend.addTo(myMap);
+
+  
+myMap.setBearing(52)
+  
+})
+
+
+
+
+function addPopUp(feature,layer){
+  
+  let content = "<b>";
+
+  if (feature.properties.Name !== ""){
+    content+="Name: " + feature.properties.Name + "<br>";
+
+  }
+
+  if(feature.properties.Lot !=="" && feature.properties.Lot !== "N/A" && feature.properties.Lot !== " "){
+    content+= "Lot number: " + feature.properties.Lot + "<br>";
+
+  }
+
+  if (feature.properties.Ship_number !== ""){
+    content+="Ship + Passenger number: " + feature.properties.Ship_number + "<br>";
+
+  }
+
+  if (feature.properties.Birth !== ""){
+    content+="Birth: " + feature.properties.Birth + "<br>";
+
+  }
+
+  if (feature.properties.Death !== ""){
+    content+="Death: " + feature.properties.Death + "<br>";
+
+  }
+
+  if (feature.properties.Bio !== ""){
+    content+="</b>"+"<br>" + feature.properties.Bio + "<br>";
+
+  }
+
+    if (feature.properties.Image !== ""){
+    content+= "<br>"+"<img width=300 src='"+feature.properties.Image+"'>"
+                 + "<br>";
+
+  }
+
+  if(feature.properties.Image !== "" && feature.properties.Type!=="other "){
+    content+="<br>"+"<i>" + "Image taken: 2018"+"</i>";
+  }
+
+ layer.bindPopup(content)   }
+  
+
+
+
+
+function getcolor (feature) {
+  if(feature.properties.Type == "person") {return 'blue'
+    
+  }
+  else if (feature.properties.Type == "street") {return 'orange'}
+  else if (feature.properties.Type == "public building") {return 'green'}
+  else {return 'black'}
+};
+
 

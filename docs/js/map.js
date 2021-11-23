@@ -1,12 +1,12 @@
 let myMap = L.map('mapid', {rotate:true});
-myMap.setView([29.957588538774026, -90.06292144027744], 15);
+myMap.setView([29.958232, -90.065136], 16);
 
 let tilesbg = L.tileLayer('https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/tile/{z}/{y}/{x}')
 let tiles = L.tileLayer("https://mapwarper.net/maps/tile/58607/{z}/{x}/{y}.png")
 tilesbg.addTo(myMap)
 tiles.addTo(myMap);
 
-$.getJSON("https://cdn.glitch.me/095c6d41-a3ec-49e6-a0eb-30d2394c0254%2FMutinousWomen5.geojson?v=1636589906502", function(data){
+$.getJSON("https://cdn.glitch.me/ff68c5af-6a66-41a2-892e-9495a1e61e6d%2FMutinousWomen-latest%20update-november%2010th%20-%20MutinousWomen-latest%20update-novembre%204th.geojson?v=1637690445076", function(data){
   
 // let legend = L.control({position: 'bottomright'});
   
@@ -16,7 +16,7 @@ $.getJSON("https://cdn.glitch.me/095c6d41-a3ec-49e6-a0eb-30d2394c0254%2FMutinous
     
     pointToLayer: function(feature, latlng) {
       return new L.CircleMarker(latlng, {
-        radius:2,
+        radius:4,
         color: getcolor(feature)
       });
     },
@@ -28,6 +28,19 @@ $.getJSON("https://cdn.glitch.me/095c6d41-a3ec-49e6-a0eb-30d2394c0254%2FMutinous
   
   
   rainCheckSites.addTo(myMap);
+
+let legend = L.control({ position: "bottomleft" });
+
+legend.onAdd = function(map) {
+  let div = L.DomUtil.create("div", "legend");
+  div.innerHTML += '<img src="https://cdn.glitch.me/ff68c5af-6a66-41a2-892e-9495a1e61e6d%2Fmutine-women-legend.jpg?v=1637694856933" style="width:200px">'
+  
+
+  return div;
+};
+
+legend.addTo(myMap);
+
   
 myMap.setBearing(52)
   
@@ -38,104 +51,60 @@ myMap.setBearing(52)
 
 function addPopUp(feature,layer){
   
-  if (feature.properties.Type=="street"||feature.properties.Type=="person"){
-    
-    
-    
+  let content = "<b>";
 
-  
-  let content = "<b>"+"Name: " + feature.properties.Name + "<br>" 
-                + "Lot number: " + feature.properties.Lot + "<br>"
-                + "Ship, Passenger number: " + feature.properties.Ship_number + "<br>"
-                + "Birth: "+ feature.properties.Birth + "<br>"
-                + "Death: "+ feature.properties.Death + "<br>"+"</b>"
-                + "<br>"
-                + feature.properties.Bio + "<br>"
-                +"<br>"
-                + "<img width=300 src='"+feature.properties.Image+"'>"
-                + "<br>"
-  
-                 
- layer.bindPopup(content)   }
-  
-  else if (feature.properties.Type=="public building"){
-  
-  
-    let content = "<b>"
-                + "<b>"+ feature.properties.Name + "<br>" 
-                +"<br>"
-                + feature.properties.Bio + "<br>"
-                +"<br>"
-                + "<img width=300 src='"+feature.properties.Image+"'>"
-                + "<br>"
-  
-                 
- layer.bindPopup(content)   }
-  
-   else if (feature.properties.Type=="other "){
- 
- let content = "<b>"+"Name: " + feature.properties.Name + "<br>" 
-                + "Lot number: " + feature.properties.Lot + "<br>"
-                + "Ship, Passenger number: " + feature.properties.Ship_number + "<br>"
-                + "Birth: "+ feature.properties.Birth + "<br>"
-                + "Death: "+ feature.properties.Death + "<br>"+"</b>"
-                + "<br>"
-                + feature.properties.Bio + "<br>"
-                +"<br>"
-                + "<img width=300 src='"+feature.properties.Image+"'>"
-                + "<br>"
-  
-      
-               
-  
-                 
- layer.bindPopup(content)  
-    
-    
+  if (feature.properties.Name !== ""){
+    content+="Name: " + feature.properties.Name + "<br>";
+
   }
+
+  if(feature.properties.Lot !=="" && feature.properties.Lot !== "N/A" && feature.properties.Lot !== " "){
+    content+= "Lot number: " + feature.properties.Lot + "<br>";
+
+  }
+
+  if (feature.properties.Ship_number !== ""){
+    content+="Ship + Passenger number: " + feature.properties.Ship_number + "<br>";
+
+  }
+
+  if (feature.properties.Birth !== ""){
+    content+="Birth: " + feature.properties.Birth + "<br>";
+
+  }
+
+  if (feature.properties.Death !== ""){
+    content+="Death: " + feature.properties.Death + "<br>";
+
+  }
+
+  if (feature.properties.Bio !== ""){
+    content+="</b>"+"<br>" + feature.properties.Bio + "<br>";
+
+  }
+
+    if (feature.properties.Image !== ""){
+    content+= "<br>"+"<img width=300 src='"+feature.properties.Image+"'>"
+                 + "<br>";
+
+  }
+
+  if(feature.properties.Image !== "" && feature.properties.Type!=="other "){
+    content+="<br>"+"<i>" + "Image taken: 2018"+"</i>";
+  }
+
+ layer.bindPopup(content)   }
   
-  
-}
 
-
-
-function getColor(feature){
-  switch (feature.properties.TOOLS_INSTALLED) {
-            case 'depaving':
-              return  'orange';
-            case 'downspout planter':
-              return 'green';
-            case 'Downspout planter':
-              return 'green';
-            case 'rain garden':
-              return 'blue';
-            case 'rain barrel':
-              return 'purple';
-            case 'Rain Barrel':
-              return 'purple;'
-            case 'permeable pavers':
-              return 'pink';
-            case 'Permeable pavers':
-              return 'pink';
-            default:
-              return 'black';
-          }
-        }
-
-myMap.on("contextmenu", function (event) {
-  document.getElementById("title").innerText = event.latlng.toString();
-  console.log("user right-clicked on map coordinates: " + event.latlng.toString());
-  //L.marker(event.latlng).addTo(myMap);
-});
 
 
 
 function getcolor (feature) {
-  if(feature.properties.Type == "person") {return '#1F618D'
+  if(feature.properties.Type == "person") {return 'blue'
     
   }
-  else if (feature.properties.Type == "street") {return '#AF601A'}
-  else if (feature.properties.Type == "public building") {return '#1D8348'}
+  else if (feature.properties.Type == "street") {return 'orange'}
+  else if (feature.properties.Type == "public building") {return 'green'}
   else {return 'black'}
 };
 
