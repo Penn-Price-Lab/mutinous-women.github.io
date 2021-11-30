@@ -97,7 +97,13 @@ function addPopUp(feature,layer){
     content+="<br>"+"<i>" + "Image taken: 2018"+"</i>";
   }
 
- layer.bindPopup(content)   }
+ layer.bindPopup(content, 
+      {
+      'maxWidth': '300',
+      'className' : 'popupCustom',
+      'maxHeight':'200'
+      }
+)   }
   
 
 
