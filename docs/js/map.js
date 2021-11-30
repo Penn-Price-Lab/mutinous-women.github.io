@@ -20,7 +20,11 @@ $.getJSON("https://cdn.glitch.me/ff68c5af-6a66-41a2-892e-9495a1e61e6d%2FMutinous
         color: getcolor(feature)
       });
     },
-    onEachFeature: addPopUp
+    onEachFeature: function(feature,layer){
+      layer.on({
+        click: zoomToFeature});
+      addPopUp(feature,layer);
+    }
     
     
   });
@@ -108,4 +112,20 @@ function getcolor (feature) {
   else {return 'black'}
 };
 
+function highlightFeature(e) {
+
+    var layer = e.target;
+    rainCheckSites.resetStyle(this);
+
+    layer.setStyle({
+        weight: 5,
+        color: '#666',
+        dashArray: '',
+        fillOpacity: 0.7
+    });
+    }
+
+function zoomToFeature(e) {
+    myMap.setView(e.target.getLatLng(),16);
+}
 
