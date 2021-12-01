@@ -6,7 +6,7 @@ let tiles = L.tileLayer("https://mapwarper.net/maps/tile/58607/{z}/{x}/{y}.png")
 tilesbg.addTo(myMap)
 tiles.addTo(myMap);
 
-$.getJSON("https://cdn.glitch.me/ff68c5af-6a66-41a2-892e-9495a1e61e6d%2FMutinousWomen-latest%20update-november%2010th%20-%20MutinousWomen-latest%20update-novembre%204th.geojson?v=1637690445076", function(data){
+$.getJSON("https://cdn.glitch.me/ff68c5af-6a66-41a2-892e-9495a1e61e6d%2Fmw.geojson?v=1638391802395", function(data){
   
 // let legend = L.control({position: 'bottomright'});
   
