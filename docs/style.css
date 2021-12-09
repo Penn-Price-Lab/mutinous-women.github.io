@@ -893,6 +893,10 @@ body {
     webkit-tap-highlight-color: #fed136;
 }
 
+.leaflet-popup-content{
+    max-height: 200px;
+    overflow:scroll;
+}
 
 
 
