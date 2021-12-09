@@ -259,6 +259,12 @@ fieldset[disabled] .btn-xl.active {
     background-color: #000000
 }
 
+@media(max-width:800px){
+    body {
+        margin:auto;
+    }
+}
+
 @media(min-width:768px) {
     .navbar-default {
         padding: 25px 0;
