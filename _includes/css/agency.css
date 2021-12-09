@@ -771,7 +771,7 @@ ul.social-buttons {
 }
 
 ul.social-buttons li a {
-    display: block;
+    display: inline-block;
     width: 40px;
     height: 40px;
     border-radius: 100%;
