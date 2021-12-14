@@ -263,6 +263,10 @@ fieldset[disabled] .btn-xl.active {
     body {
         margin:auto;
     }
+    .citation{
+    font-size:10px;
+
+}
 }
 
 @media(min-width:768px) {
@@ -902,6 +906,11 @@ body {
 .leaflet-popup-content{
     max-height: 200px;
     overflow:scroll;
+}
+
+.citation{
+    font-size:14px;
+
 }
 
 
