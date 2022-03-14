@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+<script src=“leaflet_url”></script>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Escape</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="The secret history of the rebellious Frenchwomen who were exiled to colonial Louisiana and found power in the Mississippi Valley.">
+    <link rel="canonical" href="http://localhost:4000/mw-pl/web%20development/2014/07/17/project-2.html">
+
+
+    <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link rel="stylesheet" href="/mw-pl/style.css">
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="/mw-pl/css/font-awesome/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+    
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+    
+     <script src="../js/rotate.js"></script>    
+    <script
+              src="https://code.jquery.com/jquery-3.6.0.min.js"
+              integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+              crossorigin="anonymous"></script>
+    
+
+<script src="https://unpkg.com/leaflet-responsive-popup@0.6.4/leaflet.responsive.popup.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet-responsive-popup@0.6.4/leaflet.responsive.popup.css" />
+    
+    <script src="../js/map.js" defer></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+
+    <body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Mutinous Women</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                          <a class="page-scroll" href="#services">The map</a>
+                    </li>
+                    <li>
+                         <a class="page-scroll" href="#portfolio">The women</a> 
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">About</a>
+                
+                    </li>
+                    <li>
+                        
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="intro-text">
+               
+           
+                <a href="#services" class="page-scroll btn btn-xl">Access the map</a>
+            </div>
+        </div>
+        
+    </header>
+<!--
+        
+          
+        
+          
+        
+          
+        
+ -->
+
+
+    <!-- Services Section -->
+    <section id="services" class="bg-light-gray">
+        <div style="position:relative; left:50vw;  background: white;color: black;padding-left: 10px;padding-right: 10px; max-width:50%;bottom: 150px;><p class = "citation" >Image: Jean Pierre Lassus, <i>View and Perspective of New Orleans</i>, 1726.</p></div>
+        <div class="container">
+                    <div class=" section-subheading">
+         <p class="section-subheading intro"> 
+            A decade after its founding, New Orleans was home to at least 37 women who had been deported from France in 1719.  Most of them had been unjustly pronounced guilty of prostitution.  This interactive map makes it possible to learn who they really were and where they lived in New Orleans.
+
+         </p></div>
+                <div >
+                    <h2 class="section-heading text-center">The map</h2>
+                    <h3 class="section-subheading text-muted">
+                        <div>In 1731, an architect’s draftsman named Gonichon produced this map, considered the most accurate depiction of New Orleans a decade after serious construction on the new capital began.  Gonichon’s map shows all the city’s original buildings and its first streets.  On the northern edge, you see what residents already called Dauphine Street, even though the actual street did not yet exist.  </div><br>
+<div>
+    Each plot of land was numbered, and an accompanying chart listed the owners of most properties.  In many cases, Gonichon’s map makes it possible to determine precisely who lived where.  In all, of the roughly 200 privately-owned properties in New Orleans in 1731, between 8 and 10 percent were in the hands of women who were banished from France in 1719.  In many cases, these deported women had cleared the land and built the homes that sat on their lots with their own hands.
+</div><br>
+<div>The interactive map shown here illuminates these women's lives and their presence on the land, using Gonichon's map as a lens and a guide. Click on the markers to learn more about the women who lived here. A few contemporary photos of the buildings now found on the women’s property have been included.</div>
+</h3>
+
+
+
+
+
+    <div id="mapid" style="height:600px; width:100%">
+         
+    </div>
+               
+<!-- <img src="https://cdn.glitch.me/ff68c5af-6a66-41a2-892e-9495a1e61e6d%2Fmutine-women-legend.jpg?v=1637694856933" style="width:200px"> -->
+
+
+
+
+                </div>
+            </div>
+            
+                    </span>
+                    
+            </div>
+        </div>
+    </section>
+    <!-- Portfolio Grid Section -->
+    <section id="portfolio" class="bg-white">
+        <div class="container">
+<!--                 <div class="col-lg-12 text-center">
+ -->                    <h2 class="section-heading text-center">The Women</h2>
+            
+         <h3 class="section-subheading text-muted"> 
+            <div>
+            In 1719, the Parisian police force was given free rein to arrest women.  The development of the newest French colony, the immense territory known as “Louisiana,” had suddenly become a priority, and officials were willing to use any means necessary to acquire female colonists.  Any woman found on the streets of Paris was at risk of being quickly incarcerated on trumped-up charges and then shipped off across the Atlantic.  A few traveled on a vessel named Les Deux Frères, while most were transported on a ship called La Mutine, or the Mutinous Woman.  Of the hundreds arrested in police raids, roughly 188 women were taken from Paris in chains.  About 60 survived the journey.  In 1720, those survivors found themselves on the Gulf Coast.  Most soon married and began new lives all over the colony – from Natchez to Mobile, from Biloxi to Arkansas, from Natchitoches to Illinois.  During the first decade of New Orleans’s existence, at least 37 survivors resided there.  Many women deported in 1719 were among the original owners of property in what is now the French Quarter.  
+        </div>
+    </h3>
+                </div>
+            </div>
+           
+        <div class="container">
+           <!--  <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">The Women</h2>
+				</div>
+            </div> -->
+            <div class="text-muted section-subheading">
+         <p class="section-subheading text-muted"> 
+<ul>
+
+<li><b>Marie Anne Automne</b>, street address unknown</li>
+
+<li><b>Marie Avril</b>, Bayou Saint-Jean</li>
+
+<li><b>Marie Louise Balivet</b>, the Quai (Decatur Street)</li>
+
+<li><b>Marie Baron</b>, near the corner of Orleans and Dauphine.  See also Saint-Louis Church.</li>
+
+<li><b>Geneviève Bettemont</b>.  See Place d’Armes (Jackson Square).</li>
+
+<li><b>Marie Madeleine Bouru</b>, St. Philip Street</li>
+
+<li><b>Marie Anne Boutin, Chartres Street</b>.  See also G, the Hospital.</li>
+
+<li><b>Marie Louise Brunet</b>, Royal Street</li>
+
+<li><b>Marie Chartier</b>, Bourbon Street</li>
+
+<li><b>Marie Chevalier</b>, Royal Street</li>
+
+<li><b>Jeanne Coroy</b>, the corner of Bourbon and St. Philip</li>
+
+<li><b>Marie Daudin</b>, Bourbon Street.  Her daughter, Marie Catherine Laroche, later lived at the corner of Bourbon and St. Philip.  See also Saint-Louis Church..</li>
+
+<li><b>Marie Angélique Dimanche</b>, the corner of Bourbon and St. Ann.  See also the Indies Company’s Forges.</li>
+
+<li><b>Françoise Dinan</b>, Royal Street</li>
+
+<li><b>Marie Anne Dinan</b>, Chartres Street. See also Saint-Louis Church.</li>
+
+<li><b>Marie Madeleine Doyart</b>, Arsenal Street (Ursuline Avenue)</li>
+
+<li><b>Françoise Ferret</b>, street address unknown</li>
+
+<li><b>Manon Fontaine</b>, either Bourbon Street or St. Ann Street or Orleans Street.  (She owned several properties, and lived in different homes at various times in her life.)  See also the Indies Company’s Forges.</li>
+
+<li><b>Louise Fontenelle</b>, street address unknown</li>
+
+<li><b>Marie Anne Fourchet</b>.  See F, Intendance.</li>
+
+<li><b>Étiennette Gené</b>, Royal Street</li>
+
+<li><b>Marie Anne Giard</b>, Bourbon Street</li>
+
+<li><b>Marie Anne Grise</b>.  See F, Intendance.</li>
+
+<li><b>Marie Anne Le Fort</b>, Condé Street</li>
+
+<li><b>Thérèse Le Comte</b>, Condé Street.  See also G, the Hospital.</li>
+
+<li><b>Marguerite Letellier</b>, Royal Street</li>
+
+<li><b>Jeanne Mahou</b>, Dauphine Street</li>
+
+<li><b>Marie Simone Martin</b>, Royal Street</li>
+
+<li><b>Marie Michel</b>, the corner of Bourbon and Toulouse</li>
+
+<li><b>Anne Namond</b>, Royal Street</li>
+
+<li><b>Catherine Oudard</b>, Bourbon Street</li>
+
+<li><b>Marie Paris</b>, Royal Street</li>
+
+<li><b>Marie Jeanne Philbert</b>, Bourbon Street.  Her daughter, Marie Anne Bauregard/Beauregard, later resided at the corner of Bourbon and Dumaine.</li>
+
+<li><b>Marie Raflon</b>, St. Ann Street</li>
+
+<li><b>Angélique Reffe</b>, the corner of Dauphine and St. Ann</li>
+
+<li><b>Anne Françoise Rolland</b>, Chartres Street.  See also the Indies Company’s Warehouses.</li>
+
+<li><b>Marguerite Salot</b>, the corner of Bourbon and Conti</li>
+
+<li><b>Thérèse Valenciennes</b>, St. Peter Street</li>
+</ul></p></div>
+
+                </div>
+            </div>
+       
+                </section>
+     <!-- Portfolio Grid Section -->
+
+    <section id="about" class="bg-light-gray">
+        <div class="container">
+
+            
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">About</h2><br>
+                      </div>
+    <div class="col portfolio-item">
+                       <a href="https://www.basicbooks.com/titles/joan-dejean/mutinous-women/9781541600591/#"target="_blank" rel=“noreferrer noopener”>  
+                       
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                               
+                            </div>
+                        </div>
+                        <img src="img/book-cover.png" class="img-responsive img-centered" alt="">
+                    </a>
+       
+                </div>
+   
+         
+            
+                <div class="col portfolio-item">
+                    <div class="section-subheading text-muted text-center">
+                        <h4>Joan DeJean</h4>   
+                    
+
+                        <p class="text-muted"> Joan DeJean was born in Opelousas, Louisiana.  She was educated at Tulane (Newcomb College) and Yale University.  She taught courses on seventeenth- and eighteenth-century France at Yale, Princeton, and the University of Pennsylvania, where she is Trustee Professor.  She has done research in French archives since 1974, primarily in the archives of Parisian prisons held in Paris’s Arsenal Library.  It was in the Arsenal that, a decade ago, she came across the earliest documentation describing the arrests and deportations of the Mutinous Women who helped found and build New Orleans.
+                         </p><br>
+                        
+
+                        <h4>Pauline Carbonnel</h4> 
+                        <p class="text-muted"> Co-designer & developer, Research Assistant </p>
+                        <h4>Cassandra Hradil</h4> 
+                        <p class="text-muted"> Co-designer & developer, Digital Humanities Specialist </p>
+                        </div>
+
+       
+
+                    
+        
+                
+</div>
+                    </div>
+                </div>
+                  </div>
+                </div>
+            
+    </section>
+  
+
+      <footer style="background-color:white">
+        <div class="container">
+
+                
+                
+                    <ul class="list-inline social-buttons">
+                      <li>
+                        <img class= "social" src="./img/logos/PriceLab_Logo.png">
+                    </li>
+                    <li>
+                        <img style="max-height:80px; max-width:250px" class= "social" src="./img/logos/libraries_logo.jpg"></li>
+
+                    </ul>
+                
+               
+        </div>
+    </footer>
+
+     <!-- jQuery Version 1.11.0 -->
+    <script src="/mw-pl/js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/mw-pl/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="/mw-pl/js/jquery.easing.min.js"></script>
+    <script src="/mw-pl/js/classie.js"></script>
+    <script src="/mw-pl/js/cbpAnimatedHeader.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="/mw-pl/js/jqBootstrapValidation.js"></script>
+    <script src="/mw-pl/js/contact_me.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/mw-pl/js/agency.js"></script>
+
+
+    </body>
+</html>
