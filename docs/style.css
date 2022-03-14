@@ -304,7 +304,7 @@ header {
     text-align: center;
     color: #fff;
     background-attachment: scroll;
-    background-image: url('/img/header-lassus-edited.png');
+    background-image: url('/mw-pl/img/header-lassus-edited.png');
     background-position: center center;
     background-repeat: none;
     -webkit-background-size: cover;
@@ -695,7 +695,7 @@ aside.clients img {
 
 section#contact {
     background-color: #222;
-    background-image: url('/img/map-image.png');
+    background-image: url('/mw-pl/img/map-image.png');
     background-position: center;
     background-repeat: no-repeat;
 }
