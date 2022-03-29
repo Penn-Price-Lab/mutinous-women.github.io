@@ -1,6 +1,5 @@
-url: https://penn-price-lab.github.io/
+url: https://penn-price-lab.github.io
 baseurl: /mw-pl
-destination: ./docs
 # Site settings
 title: Mutinous Women
 email: your-email@domain.com
